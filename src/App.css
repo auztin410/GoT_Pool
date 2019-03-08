@@ -3,7 +3,7 @@
 }
 
 .Form {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   background-image: url('./assets/Got-Poster.jpeg');
   background-repeat: no-repeat;
@@ -13,5 +13,5 @@
 fieldset {
   width: 400px;
   margin: 0 auto;
-  background-color: grey;
+  background-color: rgba(97, 92, 92, 0.76);
 }
