@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReactHowler from 'react-howler';
+import GoT from "./assets/GoT-Song.mp3";
 
 class Form extends Component {
     constructor(props) {
@@ -16,44 +18,52 @@ class Form extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-      }
+    }
 
     render() {
         return (
             <div className="Form">
+                <ReactHowler
+                    src={GoT}
+                    playing={true}
+                    loop={true}
+                    ref={(ref) => (this.player = ref)}
+                />
                 <h1>Game of Thrones Pool</h1>
                 <form>
                     <fieldset id="Jon" onChange={this.handleChange}>
-                    <span>Jon Snow | </span>
-                        <input type="radio" name="Jon" value="Alive" />Alive
+                        <span>Jon Snow | </span>
+                        <span className="radioButtons">
+                            <input type="radio" name="Jon" value="Alive" />Alive
                         <input type="radio" name="Jon" value="Dead" />Dead
                         {(this.state.Jon === "Dead")
-                    ?
-                    <span><input type="checkbox" name="JonWight"/>Wight</span>
-                    : null
-                    }                        
+                                ?
+                                <span><input type="checkbox" name="JonWight" />Wight</span>
+                                : null
+                            }
+                        </span>
                     </fieldset>
-                    <br/>
+                    <br />
                     <fieldset id="Sansa" onChange={this.handleChange}>
-                    <span>Sansa Stark | </span>
-                    <input type="radio" name="Sansa" value="Alive" />Alive
+                        <span>Sansa Stark | </span>
+                        <input type="radio" name="Sansa" value="Alive" />Alive
                         <input type="radio" name="Sansa" value="Dead" />Dead
                         {(this.state.Sansa === "Dead")
-                    ?
-                    <span><input type="checkbox" name="SansaWight"/>Wight</span>
-                    : null                    
-                    }                        
+                            ?
+                            <span><input type="checkbox" name="SansaWight" />Wight</span>
+                            : null
+                        }
                     </fieldset>
-                    <br/>
+                    <br />
                     <fieldset id="Arya" onChange={this.handleChange}>
-                    <span>Arya Stark | </span>
-                    <input type="radio" name="Arya" value="Alive" />Alive
+                        <span>Arya Stark | </span>
+                        <input type="radio" name="Arya" value="Alive" />Alive
                         <input type="radio" name="Arya" value="Dead" />Dead
                         {(this.state.Arya === "Dead")
-                    ?
-                    <span><input type="checkbox" name="AryaWight"/>Wight</span>
-                    : null
-                    }                        
+                            ?
+                            <span><input type="checkbox" name="AryaWight" />Wight</span>
+                            : null
+                        }
                     </fieldset>
                 </form>
             </div>
