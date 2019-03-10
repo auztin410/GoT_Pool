@@ -8,10 +8,61 @@ class Form extends Component {
         super(props)
         this.state = {
             Jon: null,
+            JonWight: false,
             Sansa: null,
+            SansaWight: false,
             Arya: null,
+            AryaWight: false,
+            Bran: null,
+            BranWight: false,
             Dany: null,
-
+            DanyWight: false,
+            Cersei: null,
+            CerseiWight: false,
+            Jaime: null,
+            JaimeWight: false,
+            Tyrion: null,
+            TyrronWight: false,
+            Yara: null,
+            YaraWight: false,
+            Theon: null,
+            TheonWight: false,
+            Melisandre: null,
+            MelisandreWight: false,
+            Jorah: null,
+            JorahWight: false,
+            Hound: null,
+            HoundWight: false,
+            Mountain: null,
+            MountainWight: false,
+            Sawmwell: null,
+            SamwellWight: false,
+            Gilly: null,
+            GillyWight: false,
+            Sam: null,
+            SamWight: false,
+            Varys: null,
+            VarysWight: false,
+            Brienne: null,
+            BrienneWight: false,
+            Davos: null,
+            DavosWight: false,
+            Bronn: null,
+            BronnWight: false,
+            Pod: null,
+            PodWight: false,
+            Tormund: null,
+            TormundWight: false,
+            Grey: null,
+            GreyWight: false,
+            Missandei: null,
+            MissandeiWight: false,
+            Gendry: null,
+            GendryWight: false,
+            Beric: null,
+            BericWight: false,
+            Euron: null,
+            EuronWight: false,
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -108,6 +159,17 @@ class Form extends Component {
                         {(this.state.Jaime === "Dead")
                             ?
                             <span><input type="checkbox" name="JaimeWight" />Wight</span>
+                            : null
+                        }
+                    </fieldset>
+                    <br/>
+                    <fieldset id="Tyrion" onChange={this.handleChange}>
+                        <span>Tyrion Lannister | </span>
+                        <input type="radio" name="Tyrion" value="Alive" />Alive
+                        <input type="radio" name="Tyrion" value="Dead" />Dead
+                        {(this.state.Tyrion === "Dead")
+                            ?
+                            <span><input type="checkbox" name="TyrionWight" />Wight</span>
                             : null
                         }
                     </fieldset>
