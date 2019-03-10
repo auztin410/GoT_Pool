@@ -28,6 +28,10 @@ h1 {
   padding-top: 10px;
 }
 
+fieldset {
+  display: inline-block;
+}
+
 .Form {
   background-image: url('./assets/Got-Poster.jpeg');
   background-repeat: no-repeat;
@@ -68,4 +72,28 @@ input {
   background-image: url('./assets/ice.jfif');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.CharacterTable {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.CharacterTable td, .CharacterTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.CharacterTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.CharacterTable tr:nth-child(odd){background-color: #6d6a6a;}
+
+.CharacterTable tr:hover {background-color: black; color: whitesmoke;}
+
+.CharacterTalbe th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
