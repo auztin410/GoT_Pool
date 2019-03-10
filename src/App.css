@@ -29,7 +29,6 @@ h1 {
 }
 
 .Form {
-  width: 100vw;
   background-image: url('./assets/Got-Poster.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,7 +55,17 @@ input {
   opacity: .5;
 }
 
-fieldset:hover {
+.Character:hover {
   transition: 4s;
   opacity: 1;
+}
+
+.Submit {
+  font-family: GoT;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  background-image: url('./assets/ice.jfif');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

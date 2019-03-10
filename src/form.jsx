@@ -22,7 +22,7 @@ class Form extends Component {
             Jaime: null,
             JaimeWight: false,
             Tyrion: null,
-            TyrronWight: false,
+            TyrionWight: false,
             Yara: null,
             YaraWight: false,
             Theon: null,
@@ -63,6 +63,7 @@ class Form extends Component {
             BericWight: false,
             Euron: null,
             EuronWight: false,
+            result: null,
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -71,7 +72,45 @@ class Form extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
+    };
+
+    handleSubmit(event){
+        event.preventDefault();
+        let result = [
+            { Name: "Jon Snow", DoA: this.state.Jon, Wight: this.state.JonWight},
+            { Name: "Sansa Stark", DoA: this.state.Sansa, Wight: this.state.SansaWight},
+            { Name: "Arya Stark", DoA: this.state.Arya, Wight: this.AryaWight},
+            { Name: "Bran Stark", DoA: this.state.Bran, Wight: this.state.Bran},
+            { Name: "Daenerys Targaryen", DoA: this.state.Dany, Wight: this.state.DanyWight},
+            { Name: "Cersei Lannister", DoA: this.state.Cersei, Wight: this.state.CerseiWight},
+            { Name: "Jaime Lannister", DoA: this.state.Jaime, Wight: this.state.JaimeWight},
+            { Name: "Tyrion Lannister", DoA: this.state.Tyrion, Wight: this.state.TyrionWight},
+            { Name: "Yara Greyjoy", DoA: this.state.Yara, Wight: this.state.YaraWight},
+            { Name: "Theon Greyjoy", DoA: this.state.Theon, Wight: this.state.TheonWight},
+            { Name: "Melisandre", DoA: this.state.Melisandre, Wight: this.state.MelisandreWight},
+            { Name: "Jorah Mormont", DoA: this.state.Jorah, Wight: this.state.JorahWight},
+            { Name: "The Hound", DoA: this.state.Hound, Wight: this.state.Hound},
+            { Name: "The Mountain", DoA: this.state.Mountain, Wight: this.state.MountainWight},
+            { Name: "Samwell Tarley", DoA: this.state.Samwell, Wight: this.state.SamwellWight},
+            { Name: "Gilly", DoA: this.state.Gilly, Wight: this.state.GillyWight},
+            { Name: "Little Same", DoA: this.state.Sam, Wight: this.state.SamWight},
+            { Name: "Varys", DoA: this.state.Varys, Wight: this.state.VarysWight},
+            { Name: "Brienne of Tarth", DoA: this.state.Brienne, Wight: this.state.BrienneWight},
+            { Name: "Davos Seaworth", DoA: this.state.Davos, Wight: this.state.DavosWight},
+            { Name: "Bronn of the Blackwater", DoA: this.state.Bronn, Wight: this.state.BronnWight},
+            { Name: "Podrick Payne", DoA: this.state.Pod, Wight: this.state.PodWight},
+            { Name: "Tormund Giantsbane", DoA: this.state.Tormund, Wight: this.state.TormundWight},
+            { Name: "Greyworm", DoA: this.state.Grey, Wight: this.state.GreyWight},
+            { Name: "Missandei", DoA: this.state.Missandei, Wight: this.state.MissandeiWight},
+            { Name: "Gendry", DoA: this.state.Gendry, Wight: this.state.GendryWight},
+            { Name: "Beric Dondarrion", DoA: this.state.Beric, Wight: this.state.BericWight},
+            { Name: "Euron Greyjoy", DoA: this.state.Euron, Wight: this.state.EuronWight}
+        ];
+
+        this.setState({
+            result,
+        });
+    };
 
     render() {
         return (
@@ -297,8 +336,8 @@ class Form extends Component {
                         <input type="radio" name="Varys" value="Dead" />Dead
                         {(this.state.Varys === "Dead")
                             ?
-                            <span><input type="checkbox" name="VarysWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="VarysWight" disabled={this.state.Varys === null || this.state.Varys === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="VarysWight" disabled={this.state.Varys === null || this.state.Varys === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -309,8 +348,8 @@ class Form extends Component {
                         <input type="radio" name="Brienne" value="Dead" />Dead
                         {(this.state.Brienne === "Dead")
                             ?
-                            <span><input type="checkbox" name="BrienneWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="BrienneWight" disabled={this.state.Brienne === null || this.state.Brienne === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="BrienneWight" disabled={this.state.Brienne === null || this.state.Brienne === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -321,8 +360,8 @@ class Form extends Component {
                         <input type="radio" name="Davos" value="Dead" />Dead
                         {(this.state.Davos === "Dead")
                             ?
-                            <span><input type="checkbox" name="DavosWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="DavosWight" disabled={this.state.Davos === null || this.state.Davos === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="DavosWight" disabled={this.state.Davos === null || this.state.Davos === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -333,8 +372,8 @@ class Form extends Component {
                         <input type="radio" name="Bronn" value="Dead" />Dead
                         {(this.state.Bronn === "Dead")
                             ?
-                            <span><input type="checkbox" name="BronnWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="BronnWight" disabled={this.state.Bronn === null || this.state.Bronn === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="BronnWight" disabled={this.state.Bronn === null || this.state.Bronn === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -345,8 +384,8 @@ class Form extends Component {
                         <input type="radio" name="Pod" value="Dead" />Dead
                         {(this.state.Pod === "Dead")
                             ?
-                            <span><input type="checkbox" name="PodWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="PodWight" disabled={this.state.Pod === null || this.state.Pod === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="PodWight" disabled={this.state.Pod === null || this.state.Pod === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -357,8 +396,8 @@ class Form extends Component {
                         <input type="radio" name="Tormund" value="Dead" />Dead
                         {(this.state.Tormund === "Dead")
                             ?
-                            <span><input type="checkbox" name="TormundWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="TormundWight" disabled={this.state.Tormund === null || this.state.Tormund === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="TormundWight" disabled={this.state.Tormund === null || this.state.Tormund === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -369,8 +408,8 @@ class Form extends Component {
                         <input type="radio" name="Grey" value="Dead" />Dead
                         {(this.state.Grey === "Dead")
                             ?
-                            <span><input type="checkbox" name="GreyWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="GreyWight" disabled={this.state.Grey === null || this.state.Grey === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="GreyWight" disabled={this.state.Grey === null || this.state.Grey === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -381,8 +420,8 @@ class Form extends Component {
                         <input type="radio" name="Missandei" value="Dead" />Dead
                         {(this.state.Missandei === "Dead")
                             ?
-                            <span><input type="checkbox" name="MissandeiWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="MissandeiWight" disabled={this.state.Missandei === null || this.state.Missandei === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="MissandeiWight" disabled={this.state.Missandei === null || this.state.Missandei === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -393,8 +432,8 @@ class Form extends Component {
                         <input type="radio" name="Gendry" value="Dead" />Dead
                         {(this.state.Gendry === "Dead")
                             ?
-                            <span><input type="checkbox" name="GendryWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="GendryWight" disabled={this.state.Gendry === null || this.state.Gendry === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="GendryWight" disabled={this.state.Gendry === null || this.state.Gendry === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -405,8 +444,8 @@ class Form extends Component {
                         <input type="radio" name="Beric" value="Dead" />Dead
                         {(this.state.Beric === "Dead")
                             ?
-                            <span><input type="checkbox" name="BericWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="BericWight" disabled={this.state.Beric === null || this.state.Beric === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="BericWight" disabled={this.state.Beric === null || this.state.Beric === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
@@ -417,12 +456,36 @@ class Form extends Component {
                         <input type="radio" name="Euron" value="Dead" />Dead
                         {(this.state.Euron === "Dead")
                             ?
-                            <span><input type="checkbox" name="EuronWight" />Wight</span>
-                            : null
+                            <span><input type="checkbox" name="EuronWight" disabled={this.state.Euron === null || this.state.Euron === "Alive"}/>Wight</span>
+                            : <span className="disabled"><input type="checkbox" name="EuronWight" disabled={this.state.Euron === null || this.state.Euron === "Alive"}/>Wight</span>
                         }
                     </fieldset>
                     </div>
+                    <button className="Submit" onClick={this.handleSubmit}>Submit</button>
                 </form>
+                {(this.state.result === null)
+                ? null
+                : 
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <th>Dead or Alive</th>
+                                <th>Wight</th>
+                            </tr>
+                            {this.state.result.map(item => (
+                                <tr>
+                                    <td>{item.Name}</td>
+                                    <td>{item.DoA}</td>
+                                    <td>{item.Wight}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                }
+                
             </div>
         )
     }
