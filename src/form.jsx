@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactHowler from 'react-howler';
+import axios from 'axios';
 import GoT from "./assets/GoT-Song.mp3";
 
 class Form extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            username: "TestUser",
+            group: "Starks4Life",
             Jon: null,
             JonWight: false,
             Sansa: null,
@@ -121,6 +124,14 @@ class Form extends Component {
             result,
             show: "Review"
         });
+
+        axios.post('/submit/', {
+            username: this.state.username,
+            group: this.state.group,
+            jonSnow: result[0],
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => console.log(err));
     };
 
     handleForm() {
