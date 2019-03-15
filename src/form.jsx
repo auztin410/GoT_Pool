@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactHowler from 'react-howler';
-import axios from 'axios';
+import axios from "axios";
 import GoT from "./assets/GoT-Song.mp3";
 
 class Form extends Component {
@@ -73,6 +73,7 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this);
         this.handleForm = this.handleForm.bind(this);
+        this.handleTest = this.handleTest.bind(this);
     }
 
     handleChange(event) {
@@ -85,10 +86,22 @@ class Form extends Component {
         this.setState({
             [event.target.name]: event.target.checked
         });
-    }
+    };
+
+    handleTest() {
+        axios.post("/submit/", {
+            username: this.state.username,
+            group: this.state.group,
+            jonSnow: "Alive",
+        }).then((res) => {
+            console.log(res);
+            console.log("Test is this working?");
+        }).catch((err) => console.log(err));
+    };
 
     handleSubmit(event) {
         event.preventDefault();
+
         let result = [
             { Name: "Jon Snow", DoA: this.state.Jon, Wight: this.state.JonWight },
             { Name: "Sansa Stark", DoA: this.state.Sansa, Wight: this.state.SansaWight },
@@ -124,14 +137,6 @@ class Form extends Component {
             result,
             show: "Review"
         });
-
-        axios.post('/submit/', {
-            username: this.state.username,
-            group: this.state.group,
-            jonSnow: result[0],
-        }).then((res) => {
-            console.log(res);
-        }).catch((err) => console.log(err));
     };
 
     handleForm() {
@@ -491,6 +496,7 @@ class Form extends Component {
                             </div>
                             <button className="Submit" onClick={this.handleSubmit}>Review</button>
                         </form>
+                        <button className="Submit" onClick={this.handleTest}>Test</button>
                     </div>
                 )
                 break;

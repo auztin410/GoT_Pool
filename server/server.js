@@ -4,10 +4,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 require('dotenv').config()
 
+const path = require("path");
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-const dbConnection = require('./db') // loads our connection to the mongo database
 const app = express();
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 8080
@@ -48,7 +48,7 @@ var Sheet = require('./db/models/Sheet');
 
 
 // ==== Submit a Pool Sheet ====
-app.post('/submit', function (req, res) {
+app.post("/submit", function (req, res) {
     Sheet.create(
         {
             username: req.body.username,
@@ -64,6 +64,11 @@ app.post('/submit', function (req, res) {
 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/GoT_Pool");
+
+
+app.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../build/index.html"));
+  });
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
