@@ -90,6 +90,15 @@ app.get('/find', function(req, res) {
 	Sheet.find({}).then((dbItem) => res.json(dbItem)).catch((err) => res.json(err));
 });
 
+// ===== Route to Find Sheets by Group. =====
+app.get('/find/group/:group', function(req, res) {
+	Sheet.find({
+		group: req.params.group
+	})
+		.then((dbItem) => res.json(dbItem))
+		.catch((err) => res.json(err));
+});
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 app.use(function(req, res) {
