@@ -85,6 +85,11 @@ app.post('/submit', function(req, res) {
 		});
 });
 
+//===== Route to Pull All Sheets =====
+app.get('/find', function(req, res) {
+	Sheet.find({}).then((dbItem) => res.json(dbItem)).catch((err) => res.json(err));
+});
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 app.use(function(req, res) {

@@ -67,7 +67,8 @@ class Form extends Component {
 			Euron: null,
 			EuronWight: false,
 			result: null,
-			show: 'Form'
+			show: 'Form',
+			database: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -93,7 +94,14 @@ class Form extends Component {
 	}
 
 	handleTest() {
-		console.log('Test button');
+		axios
+			.get('/find/')
+			.then((res) => {
+				this.setState({
+					database: res.data
+				});
+			})
+			.catch((err) => console.log(err));
 	}
 
 	handleSubmit(event) {
