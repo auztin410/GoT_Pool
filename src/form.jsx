@@ -3,6 +3,7 @@ import './App.css';
 import ReactHowler from 'react-howler';
 import axios from 'axios';
 import GoT from './assets/GoT-Song.mp3';
+import Group from './Group';
 
 class Form extends Component {
 	constructor(props) {
@@ -74,6 +75,8 @@ class Form extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCheckBox = this.handleCheckBox.bind(this);
 		this.handleForm = this.handleForm.bind(this);
+		this.handleReview = this.handleReview.bind(this);
+		this.handleGroup = this.handleGroup.bind(this);
 		this.handleTest = this.handleTest.bind(this);
 	}
 
@@ -182,9 +185,22 @@ class Form extends Component {
 		});
 	}
 
-	handleForm() {
+	handleForm(event) {
+		console.log(event.target.innerHTML);
+		// this.setState({
+		// 	show: 'Form'
+		// });
+	}
+
+	handleReview() {
 		this.setState({
-			show: 'Form'
+			show: 'Review'
+		});
+	}
+
+	handleGroup() {
+		this.setState({
+			show: 'Group'
 		});
 	}
 
@@ -195,6 +211,36 @@ class Form extends Component {
 					<div className="Form">
 						<ReactHowler src={GoT} playing={true} loop={true} ref={(ref) => (this.player = ref)} />
 						<h1>Game of Thrones Pool</h1>
+						{this.state.show === 'Form' ? (
+							<span>
+								<button onClick={this.handleReview} className="Button">
+									Review
+								</button>
+								<button onClick={this.handleGroup} className="Button">
+									Group
+								</button>
+							</span>
+						) : null}
+						{this.state.show === 'Review' ? (
+							<span>
+								<button onClick={this.handleForm} className="Button">
+									Form
+								</button>
+								<button onClick={this.handleGroup} className="Button">
+									Group
+								</button>
+							</span>
+						) : null}
+						{this.state.show === 'Group' ? (
+							<span>
+								<button onClick={this.handleForm} className="Button">
+									Form
+								</button>
+								<button onClick={this.handleReview} className="Button">
+									Review
+								</button>
+							</span>
+						) : null}
 						<form>
 							<div className="Character">
 								<fieldset id="Jon" onChange={this.handleChange}>
@@ -932,11 +978,11 @@ class Form extends Component {
 									</span>
 								)}
 							</div>
-							<button className="Submit" onClick={this.handleSubmit}>
+							<button className="Button" onClick={this.handleSubmit}>
 								Review
 							</button>
 						</form>
-						<button className="Submit" onClick={this.handleTest}>
+						<button className="Button" onClick={this.handleTest}>
 							Test
 						</button>
 					</div>
@@ -985,11 +1031,14 @@ class Form extends Component {
 							</tbody>
 						</table>
 						<br />
-						<button className="Submit" onClick={this.handleForm}>
-							Form
+						<button className="Button" onClick={this.handleForm}>
+							Submit
 						</button>
 					</div>
 				);
+				break;
+			case 'Group':
+				return <Group />;
 				break;
 		}
 	}

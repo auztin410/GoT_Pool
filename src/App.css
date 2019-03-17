@@ -1,99 +1,107 @@
 @font-face {
-  font-family: GoT;
-  src: url('./assets/Game\ of\ Thrones.ttf');
+	font-family: GoT;
+	src: url('./assets/Game\ of\ Thrones.ttf');
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
 }
 
 .App {
-  margin: 0;
-  text-align: center;
-  font-family: Got;
+	margin: 0;
+	text-align: center;
+	font-family: Got;
 }
 
 h1 {
-  background-color: rgba(245, 245, 245, 0.7);
-  margin-left: 320px;
-  margin-right: 320px;
-  font-family: Got;
-  font-size: 48px;
-  padding-top: 10px;
+	background-color: rgba(245, 245, 245, 0.7);
+	margin-left: 320px;
+	margin-right: 320px;
+	font-family: Got;
+	font-size: 48px;
+	padding-top: 10px;
 }
 
 fieldset {
-  display: inline-block;
+	display: inline-block;
 }
 
 .Form {
-  background-image: url('./assets/Got-Poster.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url('./assets/Got-Poster.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .Character {
-  background-image: url('./assets/ice.jfif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 600px;
-  padding: 5px;
-  margin: 0 auto;
-  margin-top: 20px;
-  transition: 4s;
-  opacity: .5;
-  font-size: 14px;
+	background-image: url('./assets/ice.jfif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 600px;
+	padding: 5px;
+	margin: 0 auto;
+	margin-top: 20px;
+	transition: 4s;
+	opacity: .5;
+	font-size: 14px;
 }
 
 input {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .disabled {
-  opacity: .5;
+	opacity: .5;
 }
 
 .Character:hover {
-  transition: 4s;
-  opacity: 1;
+	transition: 4s;
+	opacity: 1;
 }
 
-.Submit {
-  font-family: GoT;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 5px;
-  background-image: url('./assets/ice.jfif');
-  background-repeat: no-repeat;
-  background-size: cover;
+.Button {
+	font-family: GoT;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5px;
+	background-image: url('./assets/ice.jfif');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .CharacterTable {
-  border-collapse: collapse;
-  margin: 0 auto;
+	border-collapse: collapse;
+	margin: 0 auto;
 }
 
-.CharacterTable td, .CharacterTable th {
-  border: 1px solid #ddd;
-  padding: 8px;
+.CharacterTable td,
+.CharacterTable th {
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
-.CharacterTable tr:nth-child(even){background-color: #f2f2f2;}
+.CharacterTable tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
-.CharacterTable tr:nth-child(odd){background-color: #6d6a6a;}
+.CharacterTable tr:nth-child(odd) {
+	background-color: #6d6a6a;
+}
 
-.CharacterTable tr:hover {background-color: black; color: whitesmoke;}
+.CharacterTable tr:hover {
+	background-color: black;
+	color: whitesmoke;
+}
 
 .CharacterTalbe th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4caf50;
+	color: white;
 }
