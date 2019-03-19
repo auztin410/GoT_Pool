@@ -26,12 +26,8 @@ export class Group extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Game of Thrones Pool</h1>
-				<br />
-				<br />
 				<input type="text" />
-				<br />
-				<button>Find Group</button>
+				<button className="Button">Search</button>
 			</div>
 		);
 	}

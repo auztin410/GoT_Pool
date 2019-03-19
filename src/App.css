@@ -32,10 +32,19 @@ fieldset {
 	display: inline-block;
 }
 
-.Form {
+input {
+	background-color: whitesmoke;
+	font-size: 24px;
+}
+
+.Main {
 	background-image: url('./assets/Got-Poster.jpeg');
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.Form {
+	overflow: hidden;
 }
 
 .Character {
