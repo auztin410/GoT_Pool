@@ -7,14 +7,23 @@ export class Group extends Component {
 		super(props);
 		this.state = {
 			group: null,
-			groupResults: []
+			groupResults: [],
+			search: ''
 		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleFindGroup = this.handleFindGroup.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
 	}
 
 	handleFindGroup() {
-		let group = this.state.group;
+		let search = this.state.search;
 		axios
-			.get(`/find/group/${group}/`)
+			.get(`/find/group/${search}/`)
 			.then((res) => {
 				this.setState({
 					groupResults: res.data
@@ -26,8 +35,10 @@ export class Group extends Component {
 	render() {
 		return (
 			<div>
-				<input type="text" />
-				<button className="Button">Search</button>
+				<input type="text" name="search" onChange={this.handleChange} />
+				<button className="Button" onClick={this.handleFindGroup}>
+					Search
+				</button>
 			</div>
 		);
 	}
