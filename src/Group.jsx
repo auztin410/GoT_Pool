@@ -39,6 +39,24 @@ export class Group extends Component {
 				<button className="Button" onClick={this.handleFindGroup}>
 					Search
 				</button>
+				{this.state.groupResults.length > 0 ? (
+					<div>
+						<table>
+							<tbody>
+								<tr>
+									<th>Username</th>
+									<th>Points</th>
+								</tr>
+								{this.state.groupResults.map((item) => (
+									<tr>
+										<td>{item.username}</td>
+										<td>5</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				) : null}
 			</div>
 		);
 	}
