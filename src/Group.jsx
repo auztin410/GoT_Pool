@@ -34,7 +34,7 @@ export class Group extends Component {
 
 	render() {
 		return (
-			<div>
+			<div style={{ height: this.props.height }} className="Form">
 				<input type="text" name="search" onChange={this.handleChange} />
 				<button className="Button" onClick={this.handleFindGroup}>
 					Search

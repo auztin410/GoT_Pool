@@ -81,6 +81,7 @@ class Form extends Component {
 		this.handleReview = this.handleReview.bind(this);
 		this.handleGroup = this.handleGroup.bind(this);
 		this.handleTest = this.handleTest.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	// componentDidMount() {
@@ -188,6 +189,37 @@ class Form extends Component {
 		});
 	}
 
+	handleClick(event) {
+		console.log(event.target.innerHTML);
+		let target = event.target.innerHTML;
+		switch (target) {
+			case 'Form':
+				this.setState({
+					show: 'Form',
+					form: 1483,
+					table: 0,
+					search: 0
+				});
+				break;
+			case 'Group':
+				this.setState({
+					show: 'Group',
+					form: 0,
+					table: 0,
+					search: 1483
+				});
+				break;
+			case 'Review':
+				this.setState({
+					show: 'Review',
+					form: 0,
+					table: 1483,
+					search: 0
+				});
+				break;
+		}
+	}
+
 	handleForm(event) {
 		console.log(event.target.innerHTML);
 		let target = event.target.innerHTML;
@@ -223,10 +255,10 @@ class Form extends Component {
 				{this.state.show === 'Form' ? (
 					<div>
 						<span>
-							<button onClick={this.handleReview} className="Button">
+							<button onClick={this.handleClick} className="Button">
 								Review
 							</button>
-							<button onClick={this.handleGroup} className="Button">
+							<button onClick={this.handleClick} className="Button">
 								Group
 							</button>
 						</span>
@@ -234,20 +266,20 @@ class Form extends Component {
 				) : null}
 				{this.state.show === 'Review' ? (
 					<span>
-						<button onClick={this.handleForm} className="Button">
+						<button onClick={this.handleClick} className="Button">
 							Form
 						</button>
-						<button onClick={this.handleGroup} className="Button">
+						<button onClick={this.handleClick} className="Button">
 							Group
 						</button>
 					</span>
 				) : null}
 				{this.state.show === 'Group' ? (
 					<span>
-						<button onClick={this.handleForm} className="Button">
+						<button onClick={this.handleClick} className="Button">
 							Form
 						</button>
-						<button onClick={this.handleReview} className="Button">
+						<button onClick={this.handleClick} className="Button">
 							Review
 						</button>
 					</span>
@@ -989,7 +1021,7 @@ class Form extends Component {
 					</form>
 				</div>
 
-				<div className="Form">
+				<div className="Form" style={{ height: this.state.table }}>
 					{this.state.result.length > 0 ? (
 						<table className="CharacterTable">
 							<tbody>
@@ -1030,7 +1062,7 @@ class Form extends Component {
 					) : null}
 				</div>
 
-				<Group />
+				<Group height={this.state.search} />
 			</div>
 		);
 	}
