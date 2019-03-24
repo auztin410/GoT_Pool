@@ -41,7 +41,7 @@ export class Group extends Component {
 				</button>
 				{this.state.groupResults.length > 0 ? (
 					<div>
-						<table>
+						<table className="CharacterTable">
 							<tbody>
 								<tr>
 									<th>Username</th>

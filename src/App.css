@@ -56,8 +56,15 @@ input {
 	margin: 0 auto;
 	margin-top: 20px;
 	transition: 4s;
-	opacity: .5;
+	/* opacity: .5; */
 	font-size: 14px;
+}
+
+.Input {
+	text-align: center;
+	font-family: GoT;
+	font-size: 16px;
+	width: 250px;
 }
 
 input {
@@ -107,10 +114,10 @@ input {
 	color: whitesmoke;
 }
 
-.CharacterTalbe th {
+.CharacterTable th {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background-color: #4caf50;
+	background-color: #686b68;
 	color: white;
 }

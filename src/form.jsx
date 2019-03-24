@@ -9,8 +9,8 @@ class Form extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: 'TestUser',
-			group: 'Starks4Life',
+			username: '',
+			group: '',
 			Jon: null,
 			JonWight: false,
 			Sansa: null,
@@ -180,6 +180,12 @@ class Form extends Component {
 			})
 			.then((res) => {
 				console.log(res);
+				this.setState({
+					show: 'Review',
+					form: 0,
+					table: 1483,
+					search: 0
+				});
 			})
 			.catch((err) => console.log(err));
 
@@ -1016,12 +1022,28 @@ class Form extends Component {
 							)}
 						</div>
 						<br />
-						<input type="text" name="username" onChange={this.handleChange} placeholder="Username" />
+						<input
+							className="Input"
+							type="text"
+							name="username"
+							onChange={this.handleChange}
+							placeholder="Username"
+						/>
 						<br />
 						<br />
-						<input type="text" name="group" onChange={this.handleChange} placeholder="Group Name" />
+						<input
+							className="Input"
+							type="text"
+							name="group"
+							onChange={this.handleChange}
+							placeholder="Group Name"
+						/>
 						<br />
-						<button className="Button" onClick={this.handleSubmit}>
+						<button
+							className="Button"
+							onClick={this.handleSubmit}
+							disabled={this.state.username === '' || this.state.group === ''}
+						>
 							Submit
 						</button>
 					</form>
