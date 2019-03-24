@@ -9,7 +9,8 @@ export class Group extends Component {
 			group: null,
 			groupResults: [],
 			search: '',
-			current: []
+			current: null,
+			points: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleFindGroup = this.handleFindGroup.bind(this);
@@ -39,9 +40,50 @@ export class Group extends Component {
 		axios
 			.get(`/find/group/${search}/`)
 			.then((res) => {
-				this.setState({
-					groupResults: res.data
-				});
+				this.setState(
+					{
+						groupResults: res.data
+					},
+					() => {
+						let groupResults = this.state.groupResults;
+						let start = [];
+						for (let i = 0; i < groupResults.length; i++) {
+							start.push(0);
+						}
+						console.log(start);
+						this.setState(
+							{
+								points: start
+							},
+							() => {
+								for (let i = 0; i < groupResults.length; i++) {
+									if (groupResults[i].jonSnow.DoA === this.state.current[0].jonSnow.DoA) {
+										let points = this.state.points;
+										points[i] += 1;
+										this.setState(
+											{
+												points
+											},
+											() => {
+												if (
+													this.state.current[0].jonSnow.Wight === true &&
+													groupResults[i].jonSnow.Wight === true &&
+													groupResults[i].jonSnow.DoA === 'Dead'
+												) {
+													let points = this.state.points;
+													points[i] += 1;
+													this.setState({
+														points
+													});
+												}
+											}
+										);
+									}
+								}
+							}
+						);
+					}
+				);
 			})
 			.catch((err) => console.log(err));
 	}
