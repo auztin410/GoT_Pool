@@ -48,7 +48,7 @@ export class Group extends Component {
 									<th>Points</th>
 								</tr>
 								{this.state.groupResults.map((item) => (
-									<tr>
+									<tr key={item._id}>
 										<td>{item.username}</td>
 										<td>5</td>
 									</tr>

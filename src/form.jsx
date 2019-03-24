@@ -1015,6 +1015,12 @@ class Form extends Component {
 								</span>
 							)}
 						</div>
+						<br />
+						<input type="text" name="username" onChange={this.handleChange} placeholder="Username" />
+						<br />
+						<br />
+						<input type="text" name="group" onChange={this.handleChange} placeholder="Group Name" />
+						<br />
 						<button className="Button" onClick={this.handleSubmit}>
 							Submit
 						</button>
