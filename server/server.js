@@ -40,6 +40,7 @@ app.use(function(err, req, res, next) {
 
 // ==== Adding DB Schemas ====
 var Sheet = require('./db/models/Sheet');
+var Current = require('./db/models/Current');
 
 // ==== Routes ====
 
@@ -97,6 +98,48 @@ app.get('/find/group/:group', function(req, res) {
 	})
 		.then((dbItem) => res.json(dbItem))
 		.catch((err) => res.json(err));
+});
+
+// ===== Submit Current Character List =====
+app.post('/current', function(req, res) {
+	Current.create({
+		jonSnow: req.body.jonSnow,
+		sansaStark: req.body.sansaStark,
+		aryaStark: req.body.aryaStark,
+		branStark: req.body.branStark,
+		daenarysTargaryen: req.body.daenarysTargaryen,
+		cerseiLannister: req.body.cerseiLannister,
+		jaimeLannister: req.body.jaimeLannister,
+		tyrionLannister: req.body.tyrionLannister,
+		yaraGreyjoy: req.body.yaraGreyjoy,
+		theonGreyjoy: req.body.theonGreyjoy,
+		melisandre: req.body.melisandre,
+		jorahMormont: req.body.jorahMormont,
+		hound: req.body.hound,
+		mountain: req.body.mountain,
+		samwellTarley: req.body.samwellTarley,
+		gilly: req.body.gilly,
+		littleSam: req.body.littleSam,
+		varys: req.body.varys,
+		brienneOfTarth: req.body.brienneOfTarth,
+		davosSeaworth: req.body.davosSeaworth,
+		bronn: req.body.bronn,
+		pod: req.body.pod,
+		torumnd: req.body.torumnd,
+		greyworm: req.body.greyworm,
+		missandei: req.body.missandei,
+		gendry: req.body.gendry,
+		beric: req.body.beric,
+		euronGreyjoy: req.body.euronGreyjoy
+	})
+		.then((dbItem) => res.json(dbItem))
+		.catch((err) => res.json(err));
+});
+
+// ===== Get the Current Character List =====
+app.get('/current', function(req, res) {
+	Current.find({}).then((dbItem) => res.json(dbItem)).catch((err) => res.json(err));
+	// console.log(dbItem);
 });
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');

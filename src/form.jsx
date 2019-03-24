@@ -253,6 +253,245 @@ class Form extends Component {
 		});
 	}
 
+	handleCurrent(event) {
+		event.preventDefault();
+
+		let current = {
+			jonSnow: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			sansaStark: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			aryaStark: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			branStark: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			daenerysTargaryen: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			cerseiLannister: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			jaimeLannister: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			tyrionLannister: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			yaraGreyjoy: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			theonGreyjoy: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			melisandre: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			jorahMormont: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			hound: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			mountain: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			samwellTarley: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			gilly: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			littleSam: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			varys: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			brienneOfTarth: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			davosSeaworth: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			bronn: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			pod: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			tormund: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			greyworm: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			missandei: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			gendry: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			beric: {
+				Wight: false,
+				DoA: 'Alive'
+			},
+			euronGreyjoy: {
+				Wight: false,
+				DoA: 'Alive'
+			}
+		};
+
+		axios
+			.post('/current/', {
+				jonSnow: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				sansaStark: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				aryaStark: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				branStark: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				daenerysTargaryen: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				cerseiLannister: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				jaimeLannister: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				tyrionLannister: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				yaraGreyjoy: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				theonGreyjoy: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				melisandre: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				jorahMormont: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				hound: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				mountain: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				samwellTarley: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				gilly: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				littleSam: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				varys: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				brienneOfTarth: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				davosSeaworth: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				bronn: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				pod: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				tormund: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				greyworm: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				missandei: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				gendry: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				beric: {
+					Wight: false,
+					DoA: 'Alive'
+				},
+				euronGreyjoy: {
+					Wight: false,
+					DoA: 'Alive'
+				}
+			})
+			.then((res) => {
+				console.log('Sent Current Data');
+			})
+			.catch((err) => console.log(err));
+	}
+
 	render() {
 		return (
 			<div className="Main">
@@ -1045,6 +1284,9 @@ class Form extends Component {
 							disabled={this.state.username === '' || this.state.group === ''}
 						>
 							Submit
+						</button>
+						<button className="Button" onClick={this.handleCurrent}>
+							Current
 						</button>
 					</form>
 				</div>

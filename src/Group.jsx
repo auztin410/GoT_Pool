@@ -8,10 +8,24 @@ export class Group extends Component {
 		this.state = {
 			group: null,
 			groupResults: [],
-			search: ''
+			search: '',
+			current: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleFindGroup = this.handleFindGroup.bind(this);
+	}
+
+	componentDidMount() {
+		axios
+			.get('/current/')
+			.then((res) => {
+				this.setState({
+					current: res.data
+				});
+				console.log('Test For Current Get');
+				console.log(res);
+			})
+			.catch((err) => console.log(err));
 	}
 
 	handleChange(event) {
@@ -29,7 +43,7 @@ export class Group extends Component {
 					groupResults: res.data
 				});
 			})
-			.catch((err) => err);
+			.catch((err) => console.log(err));
 	}
 
 	render() {
