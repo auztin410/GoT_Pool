@@ -14,6 +14,7 @@ export class Group extends Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleFindGroup = this.handleFindGroup.bind(this);
+		this.pointChecker = this.pointChecker.bind(this);
 	}
 
 	componentDidMount() {
@@ -33,6 +34,31 @@ export class Group extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+	}
+
+	pointChecker(groupResults, character, i) {
+		if (groupResults[i].character.DoA === this.state.current[0].character.DoA) {
+			let points = this.state.points;
+			points[i] += 1;
+			this.setState(
+				{
+					points
+				},
+				() => {
+					if (
+						this.state.current[0].character.Wight === true &&
+						groupResults[i].character.Wight === true &&
+						groupResults[i].character.DoA === 'Dead'
+					) {
+						let points = this.state.points;
+						points[i] += 1;
+						this.setState({
+							points
+						});
+					}
+				}
+			);
+		}
 	}
 
 	handleFindGroup() {
@@ -56,6 +82,7 @@ export class Group extends Component {
 							},
 							() => {
 								for (let i = 0; i < groupResults.length; i++) {
+									// this.pointChecker(groupResults, i, jonSnow);
 									if (groupResults[i].jonSnow.DoA === this.state.current[0].jonSnow.DoA) {
 										let points = this.state.points;
 										points[i] += 1;
