@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== 'production') {
+	console.log('loading dev environments');
+	require('dotenv').config();
+}
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,12 +20,6 @@ app.use(
 	})
 );
 app.use(bodyParser.json());
-
-if (process.env.NODE_ENV !== 'production') {
-	console.log('loading dev environments');
-	require('dotenv').config();
-}
-require('dotenv').config();
 
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
