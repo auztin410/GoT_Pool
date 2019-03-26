@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 require('dotenv').config();
 
-const path = require('path');
+// const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
