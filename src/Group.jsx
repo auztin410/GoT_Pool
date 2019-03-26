@@ -62,7 +62,7 @@ export class Group extends Component {
 	}
 
 	handleFindGroup() {
-		let search = this.state.search;
+		let search = this.state.search.toLocaleLowerCase();
 		axios
 			.get(`/find/group/${search}/`)
 			.then((res) => {
@@ -124,7 +124,7 @@ export class Group extends Component {
 	render() {
 		return (
 			<div style={{ height: this.props.height }} className="Form">
-				<input type="text" name="search" onChange={this.handleChange} />
+				<input className="Input" type="text" name="search" onChange={this.handleChange} />
 				<button className="Button" onClick={this.handleFindGroup}>
 					Search
 				</button>

@@ -11,61 +11,61 @@ class Form extends Component {
 		this.state = {
 			username: '',
 			group: '',
-			Jon: null,
+			Jon: 'Alive',
 			JonWight: false,
-			Sansa: null,
+			Sansa: 'Alive',
 			SansaWight: false,
-			Arya: null,
+			Arya: 'Alive',
 			AryaWight: false,
-			Bran: null,
+			Bran: 'Alive',
 			BranWight: false,
-			Dany: null,
+			Dany: 'Alive',
 			DanyWight: false,
-			Cersei: null,
+			Cersei: 'Alive',
 			CerseiWight: false,
-			Jaime: null,
+			Jaime: 'Alive',
 			JaimeWight: false,
-			Tyrion: null,
+			Tyrion: 'Alive',
 			TyrionWight: false,
-			Yara: null,
+			Yara: 'Alive',
 			YaraWight: false,
-			Theon: null,
+			Theon: 'Alive',
 			TheonWight: false,
-			Melisandre: null,
+			Melisandre: 'Alive',
 			MelisandreWight: false,
-			Jorah: null,
+			Jorah: 'Alive',
 			JorahWight: false,
-			Hound: null,
+			Hound: 'Alive',
 			HoundWight: false,
-			Mountain: null,
+			Mountain: 'Alive',
 			MountainWight: false,
-			Sawmwell: null,
+			Samwell: 'Alive',
 			SamwellWight: false,
-			Gilly: null,
+			Gilly: 'Alive',
 			GillyWight: false,
-			Sam: null,
+			Sam: 'Alive',
 			SamWight: false,
-			Varys: null,
+			Varys: 'Alive',
 			VarysWight: false,
-			Brienne: null,
+			Brienne: 'Alive',
 			BrienneWight: false,
-			Davos: null,
+			Davos: 'Alive',
 			DavosWight: false,
-			Bronn: null,
+			Bronn: 'Alive',
 			BronnWight: false,
-			Pod: null,
+			Pod: 'Alive',
 			PodWight: false,
-			Tormund: null,
+			Tormund: 'Alive',
 			TormundWight: false,
-			Grey: null,
+			Grey: 'Alive',
 			GreyWight: false,
-			Missandei: null,
+			Missandei: 'Alive',
 			MissandeiWight: false,
-			Gendry: null,
+			Gendry: 'Alive',
 			GendryWight: false,
-			Beric: null,
+			Beric: 'Alive',
 			BericWight: false,
-			Euron: null,
+			Euron: 'Alive',
 			EuronWight: false,
 			result: [],
 			show: 'Form',
@@ -145,10 +145,13 @@ class Form extends Component {
 			{ Name: 'Euron Greyjoy', DoA: this.state.Euron, Wight: this.state.EuronWight }
 		];
 
+		let username = this.state.username.toLocaleLowerCase();
+		let group = this.state.group.toLocaleLowerCase();
+
 		axios
 			.post('/submit/', {
-				username: this.state.username,
-				group: this.state.group,
+				username,
+				group,
 				jonSnow: result[0],
 				sansaStark: result[1],
 				aryaStark: result[2],
@@ -236,9 +239,6 @@ class Form extends Component {
 				});
 				break;
 		}
-		// this.setState({
-		// 	show: 'Form'
-		// });
 	}
 
 	handleReview() {
@@ -255,121 +255,6 @@ class Form extends Component {
 
 	handleCurrent(event) {
 		event.preventDefault();
-
-		let current = {
-			jonSnow: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			sansaStark: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			aryaStark: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			branStark: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			daenerysTargaryen: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			cerseiLannister: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			jaimeLannister: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			tyrionLannister: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			yaraGreyjoy: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			theonGreyjoy: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			melisandre: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			jorahMormont: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			hound: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			mountain: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			samwellTarley: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			gilly: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			littleSam: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			varys: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			brienneOfTarth: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			davosSeaworth: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			bronn: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			pod: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			tormund: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			greyworm: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			missandei: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			gendry: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			beric: {
-				Wight: false,
-				DoA: 'Alive'
-			},
-			euronGreyjoy: {
-				Wight: false,
-				DoA: 'Alive'
-			}
-		};
 
 		axios
 			.post('/current/', {
@@ -534,8 +419,8 @@ class Form extends Component {
 					<form>
 						<div className="Character">
 							<fieldset id="Jon" onChange={this.handleChange}>
-								<span>Jon Snow |</span>
-								<input type="radio" name="Jon" value="Alive" />Alive
+								<span className="Name">Jon Snow</span>
+								<input defaultChecked type="radio" name="Jon" value="Alive" />Alive
 								<input type="radio" name="Jon" value="Dead" />Dead
 							</fieldset>
 							{this.state.Jon === 'Dead' ? (
@@ -545,6 +430,7 @@ class Form extends Component {
 										type="checkbox"
 										name="JonWight"
 										disabled={this.state.Jon === null || this.state.Jon === 'Alive'}
+										// checked={this.state.JonWight}
 									/>Wight
 								</span>
 							) : (
@@ -560,8 +446,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Sansa" onChange={this.handleChange}>
-								<span>Sansa Stark | </span>
-								<input type="radio" name="Sansa" value="Alive" />Alive
+								<span className="Name">Sansa Stark</span>
+								<input defaultChecked type="radio" name="Sansa" value="Alive" />Alive
 								<input type="radio" name="Sansa" value="Dead" />Dead
 							</fieldset>
 							{this.state.Sansa === 'Dead' ? (
@@ -586,8 +472,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Arya" onChange={this.handleChange}>
-								<span>Arya Stark | </span>
-								<input type="radio" name="Arya" value="Alive" />Alive
+								<span className="Name">Arya Stark</span>
+								<input defaultChecked type="radio" name="Arya" value="Alive" />Alive
 								<input type="radio" name="Arya" value="Dead" />Dead
 							</fieldset>
 							{this.state.Arya === 'Dead' ? (
@@ -612,8 +498,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Bran" onChange={this.handleChange}>
-								<span>Bran Stark | </span>
-								<input type="radio" name="Bran" value="Alive" />Alive
+								<span className="Name">Bran Stark</span>
+								<input defaultChecked type="radio" name="Bran" value="Alive" />Alive
 								<input type="radio" name="Bran" value="Dead" />Dead
 							</fieldset>
 							{this.state.Bran === 'Dead' ? (
@@ -638,8 +524,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Dany" onChange={this.handleChange}>
-								<span>Daenerys Targaryen | </span>
-								<input type="radio" name="Dany" value="Alive" />Alive
+								<span className="Name">Daenerys Targaryen</span>
+								<input defaultChecked type="radio" name="Dany" value="Alive" />Alive
 								<input type="radio" name="Dany" value="Dead" />Dead
 							</fieldset>
 							{this.state.Dany === 'Dead' ? (
@@ -664,8 +550,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Cersei" onChange={this.handleChange}>
-								<span>Cersei Lannister | </span>
-								<input type="radio" name="Cersei" value="Alive" />Alive
+								<span className="Name">Cersei Lannister</span>
+								<input defaultChecked type="radio" name="Cersei" value="Alive" />Alive
 								<input type="radio" name="Cersei" value="Dead" />Dead
 							</fieldset>
 							{this.state.Cersei === 'Dead' ? (
@@ -690,8 +576,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Jaime" onChange={this.handleChange}>
-								<span>Jaime Lannister | </span>
-								<input type="radio" name="Jaime" value="Alive" />Alive
+								<span className="Name">Jaime Lannister</span>
+								<input defaultChecked type="radio" name="Jaime" value="Alive" />Alive
 								<input type="radio" name="Jaime" value="Dead" />Dead
 							</fieldset>
 							{this.state.Jaime === 'Dead' ? (
@@ -716,8 +602,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Tyrion" onChange={this.handleChange}>
-								<span>Tyrion Lannister | </span>
-								<input type="radio" name="Tyrion" value="Alive" />Alive
+								<span className="Name">Tyrion Lannister</span>
+								<input defaultChecked type="radio" name="Tyrion" value="Alive" />Alive
 								<input type="radio" name="Tyrion" value="Dead" />Dead
 							</fieldset>
 							{this.state.Tyrion === 'Dead' ? (
@@ -742,8 +628,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Yara" onChange={this.handleChange}>
-								<span>Yara Greyjoy | </span>
-								<input type="radio" name="Yara" value="Alive" />Alive
+								<span className="Name">Yara Greyjoy</span>
+								<input defaultChecked type="radio" name="Yara" value="Alive" />Alive
 								<input type="radio" name="Yara" value="Dead" />Dead
 							</fieldset>
 							{this.state.Yara === 'Dead' ? (
@@ -768,8 +654,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Theon" onChange={this.handleChange}>
-								<span>Theon Greyjoy | </span>
-								<input type="radio" name="Theon" value="Alive" />Alive
+								<span className="Name">Theon Greyjoy</span>
+								<input defaultChecked type="radio" name="Theon" value="Alive" />Alive
 								<input type="radio" name="Theon" value="Dead" />Dead
 							</fieldset>
 							{this.state.Theon === 'Dead' ? (
@@ -794,8 +680,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Melisandre" onChange={this.handleChange}>
-								<span>Melisandre | </span>
-								<input type="radio" name="Melisandre" value="Alive" />Alive
+								<span className="Name">Melisandre</span>
+								<input defaultChecked type="radio" name="Melisandre" value="Alive" />Alive
 								<input type="radio" name="Melisandre" value="Dead" />Dead
 							</fieldset>
 							{this.state.Melisandre === 'Dead' ? (
@@ -820,8 +706,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Jorah" onChange={this.handleChange}>
-								<span>Jorah Mormont | </span>
-								<input type="radio" name="Jorah" value="Alive" />Alive
+								<span className="Name">Jorah Mormont</span>
+								<input defaultChecked type="radio" name="Jorah" value="Alive" />Alive
 								<input type="radio" name="Jorah" value="Dead" />Dead
 							</fieldset>
 							{this.state.Jorah === 'Dead' ? (
@@ -846,8 +732,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Hound" onChange={this.handleChange}>
-								<span>The Hound | </span>
-								<input type="radio" name="Hound" value="Alive" />Alive
+								<span className="Name">The Hound</span>
+								<input defaultChecked type="radio" name="Hound" value="Alive" />Alive
 								<input type="radio" name="Hound" value="Dead" />Dead
 							</fieldset>
 							{this.state.Hound === 'Dead' ? (
@@ -872,8 +758,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Mountain" onChange={this.handleChange}>
-								<span>The Mountain | </span>
-								<input type="radio" name="Mountain" value="Alive" />Alive
+								<span className="Name">The Mountain</span>
+								<input defaultChecked type="radio" name="Mountain" value="Alive" />Alive
 								<input type="radio" name="Mountain" value="Dead" />Dead
 							</fieldset>
 							{this.state.Mountain === 'Dead' ? (
@@ -898,8 +784,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Samwell" onChange={this.handleChange}>
-								<span>Samwell Tarley | </span>
-								<input type="radio" name="Samwell" value="Alive" />Alive
+								<span className="Name">Samwell Tarley</span>
+								<input defaultChecked type="radio" name="Samwell" value="Alive" />Alive
 								<input type="radio" name="Samwell" value="Dead" />Dead
 							</fieldset>
 							{this.state.Samwell === 'Dead' ? (
@@ -924,8 +810,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Gilly" onChange={this.handleChange}>
-								<span>Gilly | </span>
-								<input type="radio" name="Gilly" value="Alive" />Alive
+								<span className="Name">Gilly</span>
+								<input defaultChecked type="radio" name="Gilly" value="Alive" />Alive
 								<input type="radio" name="Gilly" value="Dead" />Dead
 							</fieldset>
 							{this.state.Gilly === 'Dead' ? (
@@ -950,8 +836,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Sam" onChange={this.handleChange}>
-								<span>Little Sam | </span>
-								<input type="radio" name="Sam" value="Alive" />Alive
+								<span className="Name">Little Sam</span>
+								<input defaultChecked type="radio" name="Sam" value="Alive" />Alive
 								<input type="radio" name="Sam" value="Dead" />Dead
 							</fieldset>
 							{this.state.Sam === 'Dead' ? (
@@ -976,8 +862,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Varys" onChange={this.handleChange}>
-								<span>Varys | </span>
-								<input type="radio" name="Varys" value="Alive" />Alive
+								<span className="Name">Varys</span>
+								<input defaultChecked type="radio" name="Varys" value="Alive" />Alive
 								<input type="radio" name="Varys" value="Dead" />Dead
 							</fieldset>
 							{this.state.Varys === 'Dead' ? (
@@ -1002,8 +888,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Brienne" onChange={this.handleChange}>
-								<span>Brienne of Tarth | </span>
-								<input type="radio" name="Brienne" value="Alive" />Alive
+								<span className="Name">Brienne of Tarth</span>
+								<input defaultChecked type="radio" name="Brienne" value="Alive" />Alive
 								<input type="radio" name="Brienne" value="Dead" />Dead
 							</fieldset>
 							{this.state.Brienne === 'Dead' ? (
@@ -1028,8 +914,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Davos" onChange={this.handleChange}>
-								<span>Davos Seaworth | </span>
-								<input type="radio" name="Davos" value="Alive" />Alive
+								<span className="Name">Davos Seaworth</span>
+								<input defaultChecked type="radio" name="Davos" value="Alive" />Alive
 								<input type="radio" name="Davos" value="Dead" />Dead
 							</fieldset>
 							{this.state.Davos === 'Dead' ? (
@@ -1054,8 +940,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Bronn" onChange={this.handleChange}>
-								<span>Bronn of The Blackwater | </span>
-								<input type="radio" name="Bronn" value="Alive" />Alive
+								<span className="Name">Bronn of The Blackwater</span>
+								<input defaultChecked type="radio" name="Bronn" value="Alive" />Alive
 								<input type="radio" name="Bronn" value="Dead" />Dead
 							</fieldset>
 							{this.state.Bronn === 'Dead' ? (
@@ -1080,8 +966,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Pod" onChange={this.handleChange}>
-								<span>Podrick Payne | </span>
-								<input type="radio" name="Pod" value="Alive" />Alive
+								<span className="Name">Podrick Payne</span>
+								<input defaultChecked type="radio" name="Pod" value="Alive" />Alive
 								<input type="radio" name="Pod" value="Dead" />Dead
 							</fieldset>
 							{this.state.Pod === 'Dead' ? (
@@ -1106,8 +992,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Tormund" onChange={this.handleChange}>
-								<span>Tormund Giantsbane | </span>
-								<input type="radio" name="Tormund" value="Alive" />Alive
+								<span className="Name">Tormund Giantsbane</span>
+								<input defaultChecked type="radio" name="Tormund" value="Alive" />Alive
 								<input type="radio" name="Tormund" value="Dead" />Dead
 							</fieldset>
 							{this.state.Tormund === 'Dead' ? (
@@ -1132,8 +1018,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Grey" onChange={this.handleChange}>
-								<span>Grey Worm | </span>
-								<input type="radio" name="Grey" value="Alive" />Alive
+								<span className="Name">Grey Worm</span>
+								<input defaultChecked type="radio" name="Grey" value="Alive" />Alive
 								<input type="radio" name="Grey" value="Dead" />Dead
 							</fieldset>
 							{this.state.Grey === 'Dead' ? (
@@ -1158,8 +1044,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Missandei" onChange={this.handleChange}>
-								<span>Missandei | </span>
-								<input type="radio" name="Missandei" value="Alive" />Alive
+								<span className="Name">Missandei</span>
+								<input defaultChecked type="radio" name="Missandei" value="Alive" />Alive
 								<input type="radio" name="Missandei" value="Dead" />Dead
 							</fieldset>
 							{this.state.Missandei === 'Dead' ? (
@@ -1184,8 +1070,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Gendry" onChange={this.handleChange}>
-								<span>Gendry | </span>
-								<input type="radio" name="Gendry" value="Alive" />Alive
+								<span className="Name">Gendry</span>
+								<input defaultChecked type="radio" name="Gendry" value="Alive" />Alive
 								<input type="radio" name="Gendry" value="Dead" />Dead
 							</fieldset>
 							{this.state.Gendry === 'Dead' ? (
@@ -1210,8 +1096,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Beric" onChange={this.handleChange}>
-								<span>Beric Dondarrion | </span>
-								<input type="radio" name="Beric" value="Alive" />Alive
+								<span className="Name">Beric Dondarrion</span>
+								<input defaultChecked type="radio" name="Beric" value="Alive" />Alive
 								<input type="radio" name="Beric" value="Dead" />Dead
 							</fieldset>
 							{this.state.Beric === 'Dead' ? (
@@ -1236,8 +1122,8 @@ class Form extends Component {
 						</div>
 						<div className="Character">
 							<fieldset id="Euron" onChange={this.handleChange}>
-								<span>Euron Greyjoy | </span>
-								<input type="radio" name="Euron" value="Alive" />Alive
+								<span className="Name">Euron Greyjoy</span>
+								<input defaultChecked type="radio" name="Euron" value="Alive" />Alive
 								<input type="radio" name="Euron" value="Dead" />Dead
 							</fieldset>
 							{this.state.Euron === 'Dead' ? (
