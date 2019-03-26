@@ -1171,9 +1171,9 @@ class Form extends Component {
 						>
 							Submit
 						</button>
-						{/* <button className="Button" onClick={this.handleCurrent}>
+						<button className="Button" onClick={this.handleCurrent}>
 							Current
-						</button> */}
+						</button>
 					</form>
 				</div>
 
