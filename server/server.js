@@ -144,9 +144,9 @@ app.get('/current', function(req, res) {
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
-app.use(function(req, res) {
-	res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+// app.use(function(req, res) {
+// 	res.sendFile(path.join(__dirname, '../build/index.html'));
+// });
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
