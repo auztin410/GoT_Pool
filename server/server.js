@@ -4,13 +4,13 @@
 // }
 // require('dotenv').config();
 
-const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 // ===== Middleware ====
 app.use(morgan('dev'));
