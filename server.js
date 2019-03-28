@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 require('dotenv').config();
 
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -143,8 +144,14 @@ app.get('/current', function(req, res) {
 	// console.log(dbItem);
 });
 
-app.use(function(req, res) {
-	res.sendFile(path.join(__dirname, '../build/index.html'));
+// app.use(function(req, res) {
+// 	res.sendFile(path.join(__dirname, '../build/index.html'));
+// });
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // ==== Starting Server =====
