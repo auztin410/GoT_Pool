@@ -143,9 +143,9 @@ app.get('/current', function(req, res) {
 	// console.log(dbItem);
 });
 
-// app.use(function(req, res) {
-// 	res.sendFile(path.join(__dirname, '../build/index.html'));
-// });
+app.use(function(req, res) {
+	res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
