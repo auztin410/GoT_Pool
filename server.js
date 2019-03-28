@@ -41,8 +41,8 @@ app.use(function(err, req, res, next) {
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 // ==== Adding DB Schemas ====
-var Sheet = require('./db/models/Sheet');
-var Current = require('./db/models/Current');
+var Sheet = require('./server/db/models/Sheet');
+var Current = require('./server/db/models/Current');
 
 // ==== Routes ====
 
