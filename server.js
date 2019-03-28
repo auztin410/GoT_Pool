@@ -1,10 +1,9 @@
-if (process.env.NODE_ENV !== 'production') {
-	console.log('loading dev environments');
-	require('dotenv').config();
-}
-require('dotenv').config();
+// if (process.env.NODE_ENV !== 'production') {
+// 	console.log('loading dev environments');
+// 	require('dotenv').config();
+// }
+// require('dotenv').config();
 
-const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -21,15 +20,19 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
-	const path = require('path');
-	console.log('YOU ARE IN THE PRODUCTION ENV');
-	app.use('/static', express.static(path.join(__dirname, '../build/static')));
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'));
-	});
+	app.use(express.static('client/build'));
 }
+
+// ==== if its production environment!
+// if (process.env.NODE_ENV === 'production') {
+// 	const path = require('path');
+// 	console.log('YOU ARE IN THE PRODUCTION ENV');
+// 	app.use('/static', express.static(path.join(__dirname, '../build/static')));
+// 	app.get('/', (req, res) => {
+// 		res.sendFile(path.join(__dirname, '../build/'));
+// 	});
+// }
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
