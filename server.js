@@ -30,6 +30,8 @@ app.get('*', function(request, response) {
 	response.sendFile(path.resolve(__dirname, './client/src/index.js'));
 });
 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
+
 // ==== if its production environment!
 // if (process.env.NODE_ENV === 'production') {
 // 	const path = require('path');
@@ -50,8 +52,6 @@ app.use(function(err, req, res, next) {
 	console.error(err.stack);
 	res.status(500);
 });
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 // ==== Adding DB Schemas ====
 var Sheet = require('./server/db/models/Sheet');
