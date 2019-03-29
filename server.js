@@ -21,6 +21,15 @@ app.use(
 );
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
+app.use(express.static(__dirname + '/'));
+app.get('*', function(request, response) {
+	response.sendFile(path.resolve(__dirname, './client/src/index.js'));
+});
+
 // ==== if its production environment!
 // if (process.env.NODE_ENV === 'production') {
 // 	const path = require('path');
@@ -147,12 +156,6 @@ app.get('/current', function(req, res) {
 	Current.find({}).then((dbItem) => res.json(dbItem)).catch((err) => res.json(err));
 	// console.log(dbItem);
 });
-
-app.use(function(req, res) {
-	res.sendFile(path.join(__dirname, '/client/build/index.html'));
-});
-
-app.use(express.static(path.join(__dirname, '/client/build')));
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
