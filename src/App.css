@@ -143,17 +143,17 @@ input {
 	}
 
 	.Button {
-		font-size: 8px;
+		font-size: 6px;
 	}
 
 	.Character {
-		font-size: 8px;
-		width: 320px;
+		font-size: 6px;
+		width: 300px;
 		margin-top: 10px;
 	}
 
 	.Name {
-		width: 150px;
+		width: 125px;
 	}
 
 	.Input {
