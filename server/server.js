@@ -21,9 +21,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
 
 // app.use(express.static(__dirname + '/'));
 // app.get('*', function(request, response) {
@@ -33,17 +33,14 @@ if (process.env.NODE_ENV === 'production') {
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 // ==== if its production environment!
+// ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');
 	console.log('YOU ARE IN THE PRODUCTION ENV');
-	app.use('/static', express.static(path.join(__dirname, '/client/build/static')));
+	app.use('/static', express.static(path.join(__dirname, '../build/static')));
 	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '/client/build/'));
+		res.sendFile(path.join(__dirname, '../build/'));
 	});
-}
-
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
 }
 
 // ====== Error handler ====
