@@ -25,26 +25,26 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
 
-app.use(express.static(__dirname + '/'));
-app.get('*', function(request, response) {
-	response.sendFile(path.resolve(__dirname, './client/src/index.js'));
-});
+// app.use(express.static(__dirname + '/'));
+// app.get('*', function(request, response) {
+// 	response.sendFile(path.resolve(__dirname, './client/src/index.js'));
+// });
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/GoT_Pool');
 
 // ==== if its production environment!
-// if (process.env.NODE_ENV === 'production') {
-// 	const path = require('path');
-// 	console.log('YOU ARE IN THE PRODUCTION ENV');
-// 	app.use('/static', express.static(path.join(__dirname, '/client/build/static')));
-// 	app.get('/', (req, res) => {
-// 		res.sendFile(path.join(__dirname, '/client/build/'));
-// 	});
-// }
+if (process.env.NODE_ENV === 'production') {
+	const path = require('path');
+	console.log('YOU ARE IN THE PRODUCTION ENV');
+	app.use('/static', express.static(path.join(__dirname, '/client/build/static')));
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '/client/build/'));
+	});
+}
 
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use(express.static('client/build'));
-// }
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -54,8 +54,8 @@ app.use(function(err, req, res, next) {
 });
 
 // ==== Adding DB Schemas ====
-var Sheet = require('./server/db/models/Sheet');
-var Current = require('./server/db/models/Current');
+var Sheet = require('./db/models/Sheet');
+var Current = require('./db/models/Current');
 
 // ==== Routes ====
 
