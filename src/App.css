@@ -21,8 +21,9 @@
 
 h1 {
 	background-color: rgba(245, 245, 245, 0.7);
-	margin-left: 320px;
-	margin-right: 320px;
+	/* margin-left: 320px;
+	margin-right: 320px; */
+	margin: 0 auto;
 	font-family: Got;
 	font-size: 48px;
 	padding-top: 10px;
@@ -56,7 +57,6 @@ input {
 	margin: 0 auto;
 	margin-top: 20px;
 	transition: 4s;
-	/* opacity: .5; */
 	font-size: 14px;
 }
 
@@ -95,6 +95,13 @@ input {
 	background-image: url('./assets/ice.jfif');
 	background-repeat: no-repeat;
 	background-size: cover;
+	transition: 1s;
+}
+
+#selectedSection {
+	background-color: black;
+	color: whitesmoke;
+	background-image: unset;
 }
 
 .CharacterTable {
@@ -124,7 +131,49 @@ input {
 .CharacterTable th {
 	padding-top: 12px;
 	padding-bottom: 12px;
-	text-align: left;
+	text-align: center;
 	background-color: #686b68;
 	color: white;
+}
+
+@media only screen and (max-width: 768px) {
+	h1 {
+		font-size: 16px;
+		margin: 0 auto;
+	}
+
+	.Button {
+		font-size: 8px;
+	}
+
+	.Character {
+		font-size: 8px;
+		width: 320px;
+		margin-top: 10px;
+	}
+
+	.Name {
+		width: 150px;
+	}
+
+	.Input {
+		font-size: 8px;
+		height: 12px;
+		width: 100px;
+	}
+
+	.CharacterTable {
+		font-size: 8px;
+	}
+
+	.Main {
+		background-image: url('./assets/Got-Poster.jpeg');
+		background-repeat: no-repeat;
+		/* background-size: contain; */
+		background-position: center;
+	}
+
+	body {
+		height: 1200px;
+	}
 }

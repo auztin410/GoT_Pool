@@ -385,6 +385,9 @@ class Form extends Component {
 				{this.state.show === 'Form' ? (
 					<div>
 						<span>
+							<button onClick={this.handleClick} className="Button" id="selectedSection">
+								Form
+							</button>
 							<button onClick={this.handleClick} className="Button">
 								Review
 							</button>
@@ -399,6 +402,9 @@ class Form extends Component {
 						<button onClick={this.handleClick} className="Button">
 							Form
 						</button>
+						<button onClick={this.handleClick} className="Button" id="selectedSection">
+							Review
+						</button>
 						<button onClick={this.handleClick} className="Button">
 							Group
 						</button>
@@ -411,6 +417,9 @@ class Form extends Component {
 						</button>
 						<button onClick={this.handleClick} className="Button">
 							Review
+						</button>
+						<button onClick={this.handleClick} className="Button" id="selectedSection">
+							Group
 						</button>
 					</span>
 				) : null}
@@ -1155,7 +1164,6 @@ class Form extends Component {
 							placeholder="Username"
 						/>
 						<br />
-						<br />
 						<input
 							className="Input"
 							type="text"
@@ -1171,9 +1179,6 @@ class Form extends Component {
 						>
 							Submit
 						</button>
-						<button className="Button" onClick={this.handleCurrent}>
-							Current
-						</button>
 					</form>
 				</div>
 
@@ -1182,7 +1187,7 @@ class Form extends Component {
 						<table className="CharacterTable">
 							<tbody>
 								<tr>
-									<th>Name</th>
+									<th>Character Name</th>
 									<th>Dead or Alive</th>
 									<th>Wight</th>
 								</tr>
